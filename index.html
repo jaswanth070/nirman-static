@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirman 3.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#475569',
+                        accent: '#0ea5e9',
+                        darkbg: '#011b49'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #011b49;
+            color: white;
+        }
+
+        .dark-pattern {
+            background-color: #011b49;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .section-heading {
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #0ea5e9;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-dark {
+            background-color: rgba(1, 27, 73, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Text animation styles */
+        .text-focus-in {
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+        @keyframes text-focus-in {
+            0% {
+                filter: blur(12px);
+                opacity: 0;
+            }
+
+            100% {
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        .tracking-in-expand {
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes tracking-in-expand {
+            0% {
+                letter-spacing: -0.5em;
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slide-in-bottom {
+            animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation-delay: 1s;
+        }
+
+        @keyframes slide-in-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Event flow timeline styles */
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #0ea5e9, #1e3a8a);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #0ea5e9;
+            border-radius: 50%;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background-color: rgba(1, 27, 73, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .timeline-left {
+            float: left;
+        }
+
+        .timeline-left::after {
+            right: -10px;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(1, 27, 73, 0.7);
+        }
+
+        .timeline-right {
+            float: right;
+        }
+
+        .timeline-right::after {
+            left: -10px;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent rgba(1, 27, 73, 0.7) transparent transparent;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-content {
+                width: calc(100% - 70px);
+                float: right;
+                margin-left: 70px;
+            }
+
+            .timeline-content::after {
+                left: -10px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent rgba(1, 27, 73, 0.7) transparent transparent;
+            }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+            .section-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Hero animations */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fade-in 0.8s ease forwards;
+        }
+
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .animate-float-delay {
+            animation: float 10s ease-in-out 1s infinite;
+        }
+
+        .animate-float-delay-long {
+            animation: float 12s ease-in-out 2s infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 4s infinite;
+        }
+
+        .hover\:shadow-glow:hover {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+        }
+
+        /* Timeline enhancements */
+        .timeline-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-timeline {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .day-timeline.hidden {
+            display: none;
+        }
+
+        .day-timeline.active {
+            display: block;
+        }
+
+        .day-tab.active {
+            background-color: #0ea5e9;
+            color: white;
+        }
+
+        /* Timeline scroll effects */
+        [data-scroll-effect="fade-in-left"] {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-scroll-effect="fade-in-right"] {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-scroll-effect].visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Timeline progress indicator */
+        .timeline-progress {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, #0ea5e9, #1e3a8a);
+            height: 0;
+            transition: height 0.1s linear;
+        }
+
+        @media (max-width: 768px) {
+
+            .timeline-progress,
+            .timeline-progress-bar {
+                left: 30px;
+                transform: none;
+            }
+        }
+
+        /* NEW HERO SECTION STYLES */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(1, 27, 73, 0.9) 0%, rgba(30, 58, 138, 0.8) 100%);
+        }
+
+        .hero-card {
+            backdrop-filter: blur(8px);
+            background: rgba(1, 27, 73, 0.5);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(14, 165, 233, 0.1),
+                inset 0 0 20px rgba(14, 165, 233, 0.05);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.4);
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-container:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(1, 27, 73, 0.7), transparent);
+        }
+
+        .hero-image-frame {
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            border-radius: 16px;
+            box-shadow: inset 0 0 20px rgba(14, 165, 233, 0.2);
+            z-index: 2;
+        }
+
+        .hero-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .hero-button:hover::before {
+            left: 100%;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(14, 165, 233, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        .hero-title {
+            background: linear-gradient(90deg, #ffffff, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+        }
+
+        @media (max-width: 768px) {
+            .hero-image-container {
+                transform: none;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Enhanced section styles */
+        .section-card {
+            background: rgba(1, 27, 73, 0.7);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+            margin: 2rem auto;
+            width: 50%;
+            border-radius: 2px;
+        }
+
+        .enhanced-image {
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .enhanced-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Event completed badge */
+        .event-completed-badge {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(129, 140, 248, 0.8);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .developer-badge {
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .developer-name {
+            animation: glow 2s infinite ease-in-out;
+        }
+
+        .developer-icon {
+            animation: spin 4s infinite linear;
+            display: inline-block;
+        }
+
+        /* Alert Box Styles */
+        .alert-box {
+            background: rgba(14, 165, 233, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.2);
+        }
+    </style>
+</head>
+
+<body class="dark-pattern">
+ 
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-darkbg shadow-md z-50 transition-all duration-300 border-b border-white/10" id="navbar">
+        <div class="container mx-auto px-2 sm:px-4 flex justify-between items-center py-2 sm:py-3">
+            <div class="flex items-center">
+                <img src="/nirman.png" alt="Nirman Logo" class="h-10 xs:h-12 sm:h-14 md:h-16">
+                <span class="text-lg sm:text-xl md:text-2xl font-bold text-white ml-2 sm:ml-4">
+                    NIRMAN <span class="text-accent">3.0</span>
+                </span>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-white hover:text-accent transition-colors">About</a>
+                <a href="#events" class="text-white hover:text-accent transition-colors">Events</a>
+                <a href="#schedule" class="text-white hover:text-accent transition-colors">Schedule</a>
+            </div>
+
+            <!-- Mobile menu toggle -->
+            <div class="flex items-center md:hidden">
+                <button id="mobile-menu-button" class="text-white p-1 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkbg shadow-md border-b border-white/10">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#about" class="text-white hover:text-accent transition-colors">About</a>
+                <a href="#events" class="text-white hover:text-accent transition-colors">Events</a>
+                <a href="#schedule" class="text-white hover:text-accent transition-colors">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Modern Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 z-0">
+            <!-- Gradient background -->
+            <div class="absolute inset-0 hero-gradient"></div>
+
+            <!-- Animated floating orbs -->
+            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-float-delay"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delay-long"></div>
+
+            <!-- Floating particles -->
+            <div class="floating-particles">
+                <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                <div class="particle" style="top: 40%; left: 20%; animation-delay: 2s;"></div>
+                <div class="particle" style="top: 70%; left: 30%; animation-delay: 4s;"></div>
+                <div class="particle" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+                <div class="particle" style="top: 60%; left: 80%; animation-delay: 3s;"></div>
+                <div class="particle" style="top: 80%; left: 40%; animation-delay: 5s;"></div>
+                <div class="particle" style="top: 10%; left: 50%; animation-delay: 7s;"></div>
+                <div class="particle" style="top: 50%; left: 90%; animation-delay: 6s;"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8 z-10 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <!-- Left Content Section -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0">
+                    <!-- GITAM Logo -->
+                    <div class="flex items-center mb-6 animate-fade-in" style="animation-delay: 0.2s;">
+                        <img src="/gitam-w.png" alt="GITAM Logo" class="h-16 md:h-20 mr-3">
+                        <div class="hero-glow" style="left: 10%; top: 10%;"></div>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-fade-in" style="animation-delay: 0.4s;">
+                        NIRMAN <span class="text-accent">3.0</span>
+                    </h1>
+
+                    <!-- Event Completed Badge -->
+                    <div class="event-completed-badge inline-block px-4 py-2 rounded-full text-white font-bold mb-6 animate-fade-in" style="animation-delay: 0.5s;">
+                        <i class="fas fa-check-circle mr-2"></i> See you again
+                    </div>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg text-gray-300 mb-8 animate-fade-in" style="animation-delay: 0.6s;">
+                        Thank you to all participants, sponsors, and attendees who made Nirman 3.0 a grand success at GITAM University. The event showcased incredible talent and innovation in Civil Engineering.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in" style="animation-delay: 1s;">
+                        <a href="#events" class="hero-button bg-accent text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all text-center transform hover:scale-105 hover:shadow-glow duration-300 font-medium">
+                            View Event Highlights
+                        </a>
+                        <a href="#about" class="hero-button border border-white/30 bg-white/5 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-accent/20 hover:border-accent/50 transition-all text-center transform hover:scale-105 duration-300 font-medium">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Image Section -->
+                <div class="lg:w-1/2 animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="relative">
+                        <!-- Glow effect behind image -->
+                        <div class="absolute -inset-1 bg-accent/20 rounded-lg blur-xl animate-pulse-slow"></div>
+
+                        <!-- Main image with 3D effect -->
+                        <div class="hero-image-container">
+                            <div class="hero-image-overlay"></div>
+                            <div class="hero-image-frame"></div>
+                            <img src="/nirman.png" alt="Nirman Event" class="w-full h-auto rounded-lg relative z-1 shadow-2xl">
+
+                            <!-- Decorative elements -->
+                            <div class="absolute top-4 right-4 bg-accent/20 backdrop-blur-sm p-2 rounded-lg text-xs font-medium text-white z-10 border border-accent/30">
+                                GITAM University
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-darkbg/70 backdrop-blur-sm py-2 px-4 rounded-full text-sm font-medium text-white z-10 border border-white/10">
+                                <span class="inline-block w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></span>Department of Civil Engineering
+                            </div>
+                        </div>
+
+                        <!-- Additional glow effects -->
+                        <div class="hero-glow" style="right: 10%; bottom: 10%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event highlights badges -->
+            <div class="flex flex-wrap justify-center gap-3 mt-8 animate-fade-in" style="animation-delay: 1.2s;">
+                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-trophy mr-2 text-accent"></i> Technical Competitions
+                </span>
+                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-chalkboard-teacher mr-2 text-accent"></i> Expert Speakers
+                </span>
+                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-certificate mr-2 text-accent"></i> Certificates & Prizes
+                </span>
+            </div>
+        </div>
+
+        <!-- Decorative bottom wave -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" class="w-full h-16">
+                <path fill="rgba(1, 27, 73, 0.8)" d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About GITAM Section - Improved for mobile -->
+    <section id="about" class="py-20 bg-darkbg/80 border-y border-white/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About GITAM</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        The Gandhi Institute of Technology and Management, commonly known as GITAM, Visakhapatnam is one of the best private engineering Deemed to be University established in 1980. The university has AICTE approval and NAAC A++ accreditation.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        The university has collaborations with several reputed international universities. The university also has a vibrant student community with students from all over India and abroad, making it a truly diverse and multicultural environment.
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <div class="bg-darkbg p-4 rounded-lg text-center border border-white/10 w-28">
+                            <span class="block text-3xl font-bold text-accent">1980</span>
+                            <span class="text-sm text-gray-300">Established</span>
+                        </div>
+                        <div class="bg-darkbg p-4 rounded-lg text-center border border-white/10 w-28">
+                            <span class="block text-3xl font-bold text-accent">A++</span>
+                            <span class="text-sm text-gray-300">NAAC</span>
+                        </div>
+                        <div class="bg-darkbg p-4 rounded-lg text-center border border-white/10 w-30">
+                            <span class="block text-3xl font-bold text-accent">Global</span>
+                            <span class="text-sm text-gray-300">Collaborations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 animate-on-scroll mt-8 md:mt-0">
+                    <img src="https://images.shiksha.com/mediadata/images/1600773800phpr1wv0o.jpeg?height=300&width=400" alt="GITAM Campus Aerial View" class="rounded-lg shadow-md col-span-2 enhanced-image grayscale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Nirman Section -->
+    <section class="py-20 bg-darkbg/50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 order-2 md:order-1 animate-on-scroll mt-8 md:mt-0">
+                    <img src="/nirman.png" alt="Nirman Logo" class="rounded-lg enhanced-image">
+                </div>
+                <div class="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2 animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About Nirman</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Nirman is the Civil Engineering Club at GITAM University, dedicated to fostering innovation, creativity, and technical excellence among civil engineering students. The club serves as a platform for students to explore beyond classroom learning and engage in practical applications of civil engineering concepts.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Through workshops, competitions, guest lectures, and industry visits, Nirman aims to bridge the gap between academic knowledge and industry requirements, preparing students for successful careers in the field of civil engineering.
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Technical Competitions</span>
+                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Workshops</span>
+                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Guest Lectures</span>
+                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Industry Visits</span>
+                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Networking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Event Flow Section with Scroll Effects -->
+    <section id="schedule" class="py-20 bg-darkbg/80 border-y border-white/10 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-darkbg to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-darkbg to-transparent"></div>
+
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white mb-12 section-heading text-center">Event Highlights</h2>
+            <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-center">
+                Nirman 3.0 was a successful two-day event filled with competitions, workshops, and networking opportunities. Here's a look at the activities that took place during the event.
+            </p>
+
+            <!-- Day selector tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="day-tab active px-6 py-3 text-sm font-medium text-white bg-accent rounded-l-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all" data-day="1">
+                        Day 1
+                    </button>
+                    <button type="button" class="day-tab px-6 py-3 text-sm font-medium text-white bg-darkbg rounded-r-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all" data-day="2">
+                        Day 2
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline container with scroll effects -->
+            <div class="timeline-wrapper relative">
+                <!-- Day 1 Timeline -->
+                <div id="day-1-timeline" class="timeline-container day-timeline active">
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">9:00 AM - 9:30 AM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Delegate Check-in, Arrival of the Chief Guest</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">9:30 AM - 9:50 AM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Inauguration</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">9:50 AM - 10:30 AM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Conversation with the Chief Guest</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">11:30 AM - 12:00 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Case Study/Workshop</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">12:00 PM - 1:00 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Lunch</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">1:00 PM - 2:00 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Bridge Making</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">2:00 PM - 3:45 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">E-Bidding</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">4:00 PM - 5:00 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Tug of War</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 Timeline -->
+                <div id="day-2-timeline" class="timeline-container day-timeline hidden">
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">9:00 AM - 11:00 AM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Box Cricket</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">11.00 AM - 12:15 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Bridge Testing</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">12.30 AM - 01:15 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Lunch</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">01:15 PM - 2:45 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Quiz</h4>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-left">
+                            <div class="text-accent font-bold">2:45 PM - 3:30 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Pot Painting</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-on-scroll" data-scroll-effect="fade-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content timeline-right">
+                            <div class="text-accent font-bold">3:45 PM - 5:30 PM</div>
+                            <h4 class="text-lg font-semibold text-white mt-1">Closing Ceremony & Talent Show</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Note from HOD Section -->
+    <section class="py-20 bg-darkbg/50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 animate-on-scroll">
+                    <img src="https://www.gitam.edu/sites/default/files/faculty/1124.jpg?height=400&width=300" alt="Prof. D. Mukund" class="rounded-lg shadow-md mx-auto enhanced-image">
+                    <div class="text-center mt-6">
+                        <h3 class="text-xl font-semibold text-white">Prof. D. Mukund</h3>
+                        <p class="text-gray-300">Head of Civil Engineering Department</p>
+                        <p class="text-gray-300">GITAM University</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12 animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">Note from HOD</h2>
+                    <div class="bg-darkbg p-8 rounded-lg shadow-sm border-l-4 border-accent border border-white/10 hero-card">
+                        <p class="text-gray-300 mb-6 leading-relaxed italic">
+                            "It is with immense pride that I present Nirman 3.0, an initiative driven by the talented students of the Department of Civil Engineering at GITAM University. Organized entirely by our enthusiastic student community, Nirman 3.0 provides a platform for students across various colleges to come together, collaborate, and showcase their skills in the dynamic field of civil engineering.
+                        </p>
+                        <p class="text-gray-300 mb-6 leading-relaxed italic">
+                            This event is a celebration of innovation and creativity, featuring engaging technical and non-technical competitions designed to inspire the next generation of engineers. It serves as a unique opportunity for participants to connect, learn, and grow, fostering a spirit of collaboration and healthy competition.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed italic">
+                            We welcome students from across the region to be a part of this exciting journey. Your support as a sponsor will enable us to create a remarkable experience and elevate the event to greater heights. Together, let's inspire and empower the future leaders of civil engineering."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previous Events Section -->
+    <section id="events" class="py-20 bg-darkbg/80 border-y border-white/10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white mb-12 section-heading text-center">Our Previous Events</h2>
+            <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-center">
+                The year 2023 was a milestone for our civil engineering community, highlighted by two remarkable events—Civil Engineering Tech Fest Nirman 2023 and Nirman 2.0. Both events were resounding successes, showcasing innovation, talent, and collaboration, and setting new standards for participation and impact.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Event 1 -->
+                <div class="card-dark rounded-lg shadow-md overflow-hidden animate-on-scroll section-card">
+                    <img src="/img4.jpg" alt="Civil Engineering Tech Fest 2023" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Civil Engineering Tech Fest 2023</h3>
+                        <div class="flex flex-wrap items-center mb-4 gap-2">
+                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">200+ Participants</span>
+                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">8 Colleges</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            The Civil Engineering Tech Fest 2023 brought together over 200 participants from 8 colleges across the state. This vibrant event featured an exciting lineup of technical and non-technical competitions, offering students a platform to showcase their creativity and expertise.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            A key highlight was the guest lecture by civil engineer Ravichandu Baratam, who shared insights from his prestigious projects in India and abroad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="card-dark rounded-lg shadow-md overflow-hidden animate-on-scroll section-card">
+                    <img src="/nirman.png" alt="Nirman 2.0" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Nirman 2.0</h3>
+                        <div class="flex flex-wrap items-center mb-4 gap-2">
+                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">300+ Participants</span>
+                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">Multiple Competitions</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            In 2023, we hosted Nirman 2.0, attracting over 300 participants and exceeding expectations. The event featured dynamic competitions and engaging activities, highlighting our commitment to excellence and innovation.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Nirman 2.0 successfully bridged academia and industry for a collaborative and enriching experience, setting a new benchmark for future events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center animate-on-scroll">
+                <h3 class="text-2xl font-bold text-white mb-6">Event Highlights</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="/img2.jpg" alt="Event Highlight 1" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img1.jpg" alt="Event Highlight 2" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img3.jpg" alt="Event Highlight 3" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img5.jpg" alt="Event Highlight 4" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkbg text-white py-12 border-t border-white/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between mb-12">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-6">
+                        <img src="/nirman.png?height=50&width=50" alt="Nirman Logo" class="h-12 mr-3">
+                        <div>
+                            <h3 class="text-2xl font-bold">NIRMAN <span class="text-accent">3.0</span></h3>
+                            <p class="text-gray-400">Department of Civil Engineering</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 max-w-md mb-6">
+                        Thank you for being part of our exciting celebration of innovation and creativity in the field of civil engineering.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/nirman.gitam?igsh=YmhtN3JqaHVpa3Vx" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nirman-gitam-2473a5272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                            <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
+                            <li><a href="#schedule" class="text-gray-400 hover:text-white transition-colors">Schedule</a></li>
+                        </ul>
+                    </div>
+                   
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-accent mr-2"></i>
+                                <span class="text-gray-400">GITAM University, Visakhapatnam</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone text-accent mr-2"></i>
+                                <span class="text-gray-400">+91 80968 44639</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-accent mr-2"></i>
+                                <span class="text-gray-400">nirman.gitam@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-4">
+                <div class="flex flex-col items-center justify-center">
+                    <div class="text-center mt-2 text-gray-400 text-xs">
+                        <i class="fas fa-code text-white developer-icon"></i> Developed and Managed by
+                        <a href="https://jaswanthmadiya.tech" target="_blank" class="text-white hover:underline developer-name">
+                            Jaswanth Madiya
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center items-center">
+                    <p class="text-gray-400 md:mb-0">© 2025 Nirman 3.0. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-accent text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- jQuery Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBox = document.getElementById('alertBox');
+            const closeAlert = document.getElementById('closeAlert');
+            let alertTimeout;
+
+            // Function to hide the alert
+            function hideAlert() {
+                alertBox.classList.remove('translate-y-0');
+                alertBox.classList.add('-translate-y-full');
+
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, 500);
+
+                // Clear the timeout if it exists
+                if (alertTimeout) {
+                    clearTimeout(alertTimeout);
+                }
+            }
+
+            // Close button event listener
+            closeAlert.addEventListener('click', hideAlert);
+
+            // Auto-dismiss after 10 seconds
+            alertTimeout = setTimeout(hideAlert, 10000);
+
+            // Make sure alert is visible when page loads
+            setTimeout(() => {
+                alertBox.classList.remove('-translate-y-full');
+                alertBox.classList.add('translate-y-0');
+            }, 500);
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Mobile Menu Toggle
+            $('#mobile-menu-button').click(function () {
+                $('#mobile-menu').slideToggle();
+            });
+
+            // Smooth Scrolling for Anchor Links
+            $('a[href^="#"]').on('click', function (event) {
+                if (this.hash !== '') {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 80
+                    }, 800);
+                }
+            });
+
+            // Sticky Navigation
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('#navbar').addClass('py-2').removeClass('py-3');
+                    $('#navbar').addClass('shadow-lg');
+                } else {
+                    $('#navbar').removeClass('py-2').addClass('py-3');
+                    $('#navbar').removeClass('shadow-lg');
+                }
+
+                // Back to Top Button
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+                } else {
+                    $('#back-to-top').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+                }
+
+                // Animate on Scroll
+                $('.animate-on-scroll').each(function () {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+
+                    if (scroll + windowHeight - 100 > position) {
+                        $(this).addClass('visible');
+                    }
+                });
+            });
+
+            // Back to Top Button Click
+            $('#back-to-top').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+                return false;
+            });
+
+            // Initialize Animation on Load
+            setTimeout(function () {
+                $(window).scroll();
+            }, 100);
+
+            // Day tabs functionality
+            $('.day-tab').click(function () {
+                const day = $(this).data('day');
+
+                // Update active tab
+                $('.day-tab').removeClass('active');
+                $(this).addClass('active');
+
+                // Show corresponding timeline
+                $('.day-timeline').removeClass('active').addClass('hidden');
+                $(`#day-${day}-timeline`).removeClass('hidden').addClass('active');
+
+                // Reset timeline progress
+                $('.timeline-progress-bar').css('height', '0%');
+
+                // Reset and trigger animations
+                $('[data-scroll-effect]').removeClass('visible');
+                setTimeout(function () {
+                    $(window).scroll();
+                }, 100);
+            });
+
+            // Timeline scroll progress
+            $(window).scroll(function () {
+                if ($('#schedule').length) {
+                    const scheduleTop = $('#schedule').offset().top;
+                    const scheduleHeight = $('#schedule').height();
+                    const scrollPosition = $(window).scrollTop() + $(window).height() / 2;
+
+                    if (scrollPosition > scheduleTop && scrollPosition < (scheduleTop + scheduleHeight)) {
+                        const progress = (scrollPosition - scheduleTop) / scheduleHeight;
+                        $('.timeline-progress-bar').css('height', (progress * 100) + '%');
+                    }
+                }
+
+                // Enhanced scroll animations for timeline
+                $('[data-scroll-effect]').each(function () {
+                    const position = $(this).offset().top;
+                    const scroll = $(window).scrollTop();
+                    const windowHeight = $(window).height();
+
+                    if (scroll + windowHeight - 100 > position) {
+                        $(this).addClass('visible');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
