@@ -552,18 +552,24 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
         }
 
         @keyframes glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
             }
+
             50% {
                 text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(129, 140, 248, 0.8);
             }
@@ -573,6 +579,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -602,10 +609,11 @@
 </head>
 
 <body class="dark-pattern">
- 
+
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-darkbg shadow-md z-50 transition-all duration-300 border-b border-white/10" id="navbar">
+    <nav class="fixed top-0 left-0 w-full bg-darkbg shadow-md z-50 transition-all duration-300 border-b border-white/10"
+        id="navbar">
         <div class="container mx-auto px-2 sm:px-4 flex justify-between items-center py-2 sm:py-3">
             <div class="flex items-center">
                 <img src="/nirman.png" alt="Nirman Logo" class="h-10 xs:h-12 sm:h-14 md:h-16">
@@ -624,8 +632,10 @@
             <!-- Mobile menu toggle -->
             <div class="flex items-center md:hidden">
                 <button id="mobile-menu-button" class="text-white p-1 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -649,9 +659,15 @@
             <div class="absolute inset-0 hero-gradient"></div>
 
             <!-- Animated floating orbs -->
-            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-            <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-float-delay"></div>
-            <div class="absolute bottom-1/4 right-1/3 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delay-long"></div>
+            <div
+                class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float">
+            </div>
+            <div
+                class="absolute top-1/3 right-1/4 w-80 h-80 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-float-delay">
+            </div>
+            <div
+                class="absolute bottom-1/4 right-1/3 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delay-long">
+            </div>
 
             <!-- Floating particles -->
             <div class="floating-particles">
@@ -682,21 +698,26 @@
                     </h1>
 
                     <!-- Event Completed Badge -->
-                    <div class="event-completed-badge inline-block px-4 py-2 rounded-full text-white font-bold mb-6 animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="event-completed-badge inline-block px-4 py-2 rounded-full text-white font-bold mb-6 animate-fade-in"
+                        style="animation-delay: 0.5s;">
                         <i class="fas fa-check-circle mr-2"></i> See you again
                     </div>
 
                     <!-- Subtitle -->
                     <p class="text-lg text-gray-300 mb-8 animate-fade-in" style="animation-delay: 0.6s;">
-                        Thank you to all participants, sponsors, and attendees who made Nirman 3.0 a grand success at GITAM University. The event showcased incredible talent and innovation in Civil Engineering.
+                        Thank you to all participants, sponsors, and attendees who made Nirman 3.0 a grand success at
+                        GITAM University. The event showcased incredible talent and innovation in Civil Engineering.
                     </p>
 
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in" style="animation-delay: 1s;">
-                        <a href="#events" class="hero-button bg-accent text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all text-center transform hover:scale-105 hover:shadow-glow duration-300 font-medium">
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in"
+                        style="animation-delay: 1s;">
+                        <a href="#events"
+                            class="hero-button bg-accent text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all text-center transform hover:scale-105 hover:shadow-glow duration-300 font-medium">
                             View Event Highlights
                         </a>
-                        <a href="#about" class="hero-button border border-white/30 bg-white/5 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-accent/20 hover:border-accent/50 transition-all text-center transform hover:scale-105 duration-300 font-medium">
+                        <a href="#about"
+                            class="hero-button border border-white/30 bg-white/5 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-accent/20 hover:border-accent/50 transition-all text-center transform hover:scale-105 duration-300 font-medium">
                             Learn More
                         </a>
                     </div>
@@ -712,14 +733,19 @@
                         <div class="hero-image-container">
                             <div class="hero-image-overlay"></div>
                             <div class="hero-image-frame"></div>
-                            <img src="/nirman.png" alt="Nirman Event" class="w-full h-auto rounded-lg relative z-1 shadow-2xl">
+                            <img src="/nirman.png" alt="Nirman Event"
+                                class="w-full h-auto rounded-lg relative z-1 shadow-2xl">
 
                             <!-- Decorative elements -->
-                            <div class="absolute top-4 right-4 bg-accent/20 backdrop-blur-sm p-2 rounded-lg text-xs font-medium text-white z-10 border border-accent/30">
+                            <div
+                                class="absolute top-4 right-4 bg-accent/20 backdrop-blur-sm p-2 rounded-lg text-xs font-medium text-white z-10 border border-accent/30">
                                 GITAM University
                             </div>
-                            <div class="absolute bottom-4 left-4 bg-darkbg/70 backdrop-blur-sm py-2 px-4 rounded-full text-sm font-medium text-white z-10 border border-white/10">
-                                <span class="inline-block w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></span>Department of Civil Engineering
+                            <div
+                                class="absolute bottom-4 left-4 bg-darkbg/70 backdrop-blur-sm py-2 px-4 rounded-full text-sm font-medium text-white z-10 border border-white/10">
+                                <span
+                                    class="inline-block w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></span>Department
+                                of Civil Engineering
                             </div>
                         </div>
 
@@ -731,13 +757,16 @@
 
             <!-- Event highlights badges -->
             <div class="flex flex-wrap justify-center gap-3 mt-8 animate-fade-in" style="animation-delay: 1.2s;">
-                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                <span
+                    class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
                     <i class="fas fa-trophy mr-2 text-accent"></i> Technical Competitions
                 </span>
-                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                <span
+                    class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
                     <i class="fas fa-chalkboard-teacher mr-2 text-accent"></i> Expert Speakers
                 </span>
-                <span class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
+                <span
+                    class="bg-accent/10 backdrop-blur-sm text-white border border-accent/30 px-4 py-2 rounded-full text-sm">
                     <i class="fas fa-certificate mr-2 text-accent"></i> Certificates & Prizes
                 </span>
             </div>
@@ -745,8 +774,11 @@
 
         <!-- Decorative bottom wave -->
         <div class="absolute bottom-0 left-0 w-full overflow-hidden z-10">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" class="w-full h-16">
-                <path fill="rgba(1, 27, 73, 0.8)" d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none"
+                class="w-full h-16">
+                <path fill="rgba(1, 27, 73, 0.8)"
+                    d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z">
+                </path>
             </svg>
         </div>
     </section>
@@ -756,12 +788,17 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 animate-on-scroll">
-                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About GITAM</h2>
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About GITAM
+                    </h2>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        The Gandhi Institute of Technology and Management, commonly known as GITAM, Visakhapatnam is one of the best private engineering Deemed to be University established in 1980. The university has AICTE approval and NAAC A++ accreditation.
+                        The Gandhi Institute of Technology and Management, commonly known as GITAM, Visakhapatnam is one
+                        of the best private engineering Deemed to be University established in 1980. The university has
+                        AICTE approval and NAAC A++ accreditation.
                     </p>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        The university has collaborations with several reputed international universities. The university also has a vibrant student community with students from all over India and abroad, making it a truly diverse and multicultural environment.
+                        The university has collaborations with several reputed international universities. The
+                        university also has a vibrant student community with students from all over India and abroad,
+                        making it a truly diverse and multicultural environment.
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-4">
                         <div class="bg-darkbg p-4 rounded-lg text-center border border-white/10 w-28">
@@ -779,7 +816,8 @@
                     </div>
                 </div>
                 <div class="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 animate-on-scroll mt-8 md:mt-0">
-                    <img src="https://images.shiksha.com/mediadata/images/1600773800phpr1wv0o.jpeg?height=300&width=400" alt="GITAM Campus Aerial View" class="rounded-lg shadow-md col-span-2 enhanced-image grayscale">
+                    <img src="https://images.shiksha.com/mediadata/images/1600773800phpr1wv0o.jpeg?height=300&width=400"
+                        alt="GITAM Campus Aerial View" class="rounded-lg shadow-md col-span-2 enhanced-image grayscale">
                 </div>
             </div>
         </div>
@@ -793,19 +831,33 @@
                     <img src="/nirman.png" alt="Nirman Logo" class="rounded-lg enhanced-image">
                 </div>
                 <div class="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2 animate-on-scroll">
-                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About Nirman</h2>
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">About Nirman
+                    </h2>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Nirman is the Civil Engineering Club at GITAM University, dedicated to fostering innovation, creativity, and technical excellence among civil engineering students. The club serves as a platform for students to explore beyond classroom learning and engage in practical applications of civil engineering concepts.
+                        Nirman is the Civil Engineering Club at GITAM University, dedicated to fostering innovation,
+                        creativity, and technical excellence among civil engineering students. The club serves as a
+                        platform for students to explore beyond classroom learning and engage in practical applications
+                        of civil engineering concepts.
                     </p>
                     <p class="text-gray-300 mb-6 leading-relaxed">
-                        Through workshops, competitions, guest lectures, and industry visits, Nirman aims to bridge the gap between academic knowledge and industry requirements, preparing students for successful careers in the field of civil engineering.
+                        Through workshops, competitions, guest lectures, and industry visits, Nirman aims to bridge the
+                        gap between academic knowledge and industry requirements, preparing students for successful
+                        careers in the field of civil engineering.
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Technical Competitions</span>
-                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Workshops</span>
-                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Guest Lectures</span>
-                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Industry Visits</span>
-                        <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Networking</span>
+                        <span
+                            class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Technical
+                            Competitions</span>
+                        <span
+                            class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Workshops</span>
+                        <span
+                            class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Guest
+                            Lectures</span>
+                        <span
+                            class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Industry
+                            Visits</span>
+                        <span
+                            class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-4 py-2 rounded-full text-sm">Networking</span>
                     </div>
                 </div>
             </div>
@@ -821,16 +873,21 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-white mb-12 section-heading text-center">Event Highlights</h2>
             <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-center">
-                Nirman 3.0 was a successful two-day event filled with competitions, workshops, and networking opportunities. Here's a look at the activities that took place during the event.
+                Nirman 3.0 was a successful two-day event filled with competitions, workshops, and networking
+                opportunities. Here's a look at the activities that took place during the event.
             </p>
 
             <!-- Day selector tabs -->
             <div class="flex justify-center mb-12">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" class="day-tab active px-6 py-3 text-sm font-medium text-white bg-accent rounded-l-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all" data-day="1">
+                    <button type="button"
+                        class="day-tab active px-6 py-3 text-sm font-medium text-white bg-accent rounded-l-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all"
+                        data-day="1">
                         Day 1
                     </button>
-                    <button type="button" class="day-tab px-6 py-3 text-sm font-medium text-white bg-darkbg rounded-r-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all" data-day="2">
+                    <button type="button"
+                        class="day-tab px-6 py-3 text-sm font-medium text-white bg-darkbg rounded-r-lg border border-accent hover:bg-accent/80 focus:z-10 focus:ring-2 focus:ring-accent/50 transition-all"
+                        data-day="2">
                         Day 2
                     </button>
                 </div>
@@ -844,7 +901,8 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content timeline-left">
                             <div class="text-accent font-bold">9:00 AM - 9:30 AM</div>
-                            <h4 class="text-lg font-semibold text-white mt-1">Delegate Check-in, Arrival of the Chief Guest</h4>
+                            <h4 class="text-lg font-semibold text-white mt-1">Delegate Check-in, Arrival of the Chief
+                                Guest</h4>
                         </div>
                     </div>
 
@@ -960,7 +1018,8 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 animate-on-scroll">
-                    <img src="https://www.gitam.edu/sites/default/files/faculty/1124.jpg?height=400&width=300" alt="Prof. D. Mukund" class="rounded-lg shadow-md mx-auto enhanced-image">
+                    <img src="https://www.gitam.edu/sites/default/files/faculty/1124.jpg?height=400&width=300"
+                        alt="Prof. D. Mukund" class="rounded-lg shadow-md mx-auto enhanced-image">
                     <div class="text-center mt-6">
                         <h3 class="text-xl font-semibold text-white">Prof. D. Mukund</h3>
                         <p class="text-gray-300">Head of Civil Engineering Department</p>
@@ -968,16 +1027,28 @@
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12 animate-on-scroll">
-                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">Note from HOD</h2>
-                    <div class="bg-darkbg p-8 rounded-lg shadow-sm border-l-4 border-accent border border-white/10 hero-card">
+                    <h2 class="text-3xl font-bold text-white mb-8 section-heading text-center md:text-left">Note from
+                        HOD</h2>
+                    <div
+                        class="bg-darkbg p-8 rounded-lg shadow-sm border-l-4 border-accent border border-white/10 hero-card">
                         <p class="text-gray-300 mb-6 leading-relaxed italic">
-                            "It is with immense pride that I present Nirman 3.0, an initiative driven by the talented students of the Department of Civil Engineering at GITAM University. Organized entirely by our enthusiastic student community, Nirman 3.0 provides a platform for students across various colleges to come together, collaborate, and showcase their skills in the dynamic field of civil engineering.
+                            "It is with immense pride that I present Nirman 3.0, an initiative driven by the talented
+                            students of the Department of Civil Engineering at GITAM University. Organized entirely by
+                            our enthusiastic student community, Nirman 3.0 provides a platform for students across
+                            various colleges to come together, collaborate, and showcase their skills in the dynamic
+                            field of civil engineering.
                         </p>
                         <p class="text-gray-300 mb-6 leading-relaxed italic">
-                            This event is a celebration of innovation and creativity, featuring engaging technical and non-technical competitions designed to inspire the next generation of engineers. It serves as a unique opportunity for participants to connect, learn, and grow, fostering a spirit of collaboration and healthy competition.
+                            This event is a celebration of innovation and creativity, featuring engaging technical and
+                            non-technical competitions designed to inspire the next generation of engineers. It serves
+                            as a unique opportunity for participants to connect, learn, and grow, fostering a spirit of
+                            collaboration and healthy competition.
                         </p>
                         <p class="text-gray-300 leading-relaxed italic">
-                            We welcome students from across the region to be a part of this exciting journey. Your support as a sponsor will enable us to create a remarkable experience and elevate the event to greater heights. Together, let's inspire and empower the future leaders of civil engineering."
+                            We welcome students from across the region to be a part of this exciting journey. Your
+                            support as a sponsor will enable us to create a remarkable experience and elevate the event
+                            to greater heights. Together, let's inspire and empower the future leaders of civil
+                            engineering."
                         </p>
                     </div>
                 </div>
@@ -990,7 +1061,10 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-white mb-12 section-heading text-center">Our Previous Events</h2>
             <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-center">
-                The year 2023 was a milestone for our civil engineering community, highlighted by two remarkable events—Civil Engineering Tech Fest Nirman 2023 and Nirman 2.0. Both events were resounding successes, showcasing innovation, talent, and collaboration, and setting new standards for participation and impact.
+                The year 2023 was a milestone for our civil engineering community, highlighted by two remarkable
+                events—Civil Engineering Tech Fest Nirman 2023 and Nirman 2.0. Both events were resounding successes,
+                showcasing innovation, talent, and collaboration, and setting new standards for participation and
+                impact.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -1000,14 +1074,22 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-3">Civil Engineering Tech Fest 2023</h3>
                         <div class="flex flex-wrap items-center mb-4 gap-2">
-                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">200+ Participants</span>
-                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">8 Colleges</span>
+                            <span
+                                class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">200+
+                                Participants</span>
+                            <span
+                                class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">8
+                                Colleges</span>
                         </div>
                         <p class="text-gray-300 mb-4">
-                            The Civil Engineering Tech Fest 2023 brought together over 200 participants from 8 colleges across the state. This vibrant event featured an exciting lineup of technical and non-technical competitions, offering students a platform to showcase their creativity and expertise.
+                            The Civil Engineering Tech Fest 2023 brought together over 200 participants from 8 colleges
+                            across the state. This vibrant event featured an exciting lineup of technical and
+                            non-technical competitions, offering students a platform to showcase their creativity and
+                            expertise.
                         </p>
                         <p class="text-gray-300 mb-4">
-                            A key highlight was the guest lecture by civil engineer Ravichandu Baratam, who shared insights from his prestigious projects in India and abroad.
+                            A key highlight was the guest lecture by civil engineer Ravichandu Baratam, who shared
+                            insights from his prestigious projects in India and abroad.
                         </p>
                     </div>
                 </div>
@@ -1018,14 +1100,21 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-3">Nirman 2.0</h3>
                         <div class="flex flex-wrap items-center mb-4 gap-2">
-                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">300+ Participants</span>
-                            <span class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">Multiple Competitions</span>
+                            <span
+                                class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">300+
+                                Participants</span>
+                            <span
+                                class="bg-accent bg-opacity-10 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm">Multiple
+                                Competitions</span>
                         </div>
                         <p class="text-gray-300 mb-4">
-                            In 2023, we hosted Nirman 2.0, attracting over 300 participants and exceeding expectations. The event featured dynamic competitions and engaging activities, highlighting our commitment to excellence and innovation.
+                            In 2023, we hosted Nirman 2.0, attracting over 300 participants and exceeding expectations.
+                            The event featured dynamic competitions and engaging activities, highlighting our commitment
+                            to excellence and innovation.
                         </p>
                         <p class="text-gray-300 mb-4">
-                            Nirman 2.0 successfully bridged academia and industry for a collaborative and enriching experience, setting a new benchmark for future events.
+                            Nirman 2.0 successfully bridged academia and industry for a collaborative and enriching
+                            experience, setting a new benchmark for future events.
                         </p>
                     </div>
                 </div>
@@ -1034,10 +1123,14 @@
             <div class="mt-16 text-center animate-on-scroll">
                 <h3 class="text-2xl font-bold text-white mb-6">Event Highlights</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <img src="/img2.jpg" alt="Event Highlight 1" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
-                    <img src="/img1.jpg" alt="Event Highlight 2" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
-                    <img src="/img3.jpg" alt="Event Highlight 3" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
-                    <img src="/img5.jpg" alt="Event Highlight 4" class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img2.jpg" alt="Event Highlight 1"
+                        class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img1.jpg" alt="Event Highlight 2"
+                        class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img3.jpg" alt="Event Highlight 3"
+                        class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
+                    <img src="/img5.jpg" alt="Event Highlight 4"
+                        class="rounded-lg shadow-sm hover:shadow-md transition-shadow enhanced-image">
                 </div>
             </div>
         </div>
@@ -1056,13 +1149,16 @@
                         </div>
                     </div>
                     <p class="text-gray-400 max-w-md mb-6">
-                        Thank you for being part of our exciting celebration of innovation and creativity in the field of civil engineering.
+                        Thank you for being part of our exciting celebration of innovation and creativity in the field
+                        of civil engineering.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/nirman.gitam?igsh=YmhtN3JqaHVpa3Vx" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/nirman.gitam?igsh=YmhtN3JqaHVpa3Vx"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/nirman-gitam-2473a5272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.linkedin.com/in/nirman-gitam-2473a5272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -1073,11 +1169,21 @@
                         <ul class="space-y-2">
                             <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
                             <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                            <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
-                            <li><a href="#schedule" class="text-gray-400 hover:text-white transition-colors">Schedule</a></li>
+                            <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a>
+                            </li>
+                            <li><a href="#schedule"
+                                    class="text-gray-400 hover:text-white transition-colors">Schedule</a></li>
+
+                            <li><a href="https://merchant.razorpay.com/policy/Q1BwDyC4Unx1vP/terms" target="_blank"
+                                    class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
+                            <li><a href="https://merchant.razorpay.com/policy/Q1BwDyC4Unx1vP/privacy" target="_blank"
+                                    class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                            <li><a href="https://merchant.razorpay.com/policy/Q1BwDyC4Unx1vP/refund" target="_blank"
+                                    class="text-gray-400 hover:text-white transition-colors">Cancellation & Refund
+                                    Policy</a></li>
                         </ul>
                     </div>
-                   
+
                     <div class="mb-6">
                         <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                         <ul class="space-y-2">
@@ -1102,7 +1208,8 @@
                 <div class="flex flex-col items-center justify-center">
                     <div class="text-center mt-2 text-gray-400 text-xs">
                         <i class="fas fa-code text-white developer-icon"></i> Developed and Managed by
-                        <a href="https://jaswanthmadiya.tech" target="_blank" class="text-white hover:underline developer-name">
+                        <a href="https://jaswanthmadiya.tech" target="_blank"
+                            class="text-white hover:underline developer-name">
                             Jaswanth Madiya
                         </a>
                     </div>
@@ -1115,7 +1222,8 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-accent text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50">
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 bg-accent text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
